@@ -1,0 +1,38 @@
+{
+  "paths": {
+    "raw_docx_dir": "data/0_raw_docx",
+    "structured_case_dir": "data/3_structured_cases",
+    "label_file": "data/gold/candidate_gold_extended_v2.csv",
+    "strict_label_file": "data/gold/candidate_gold_strict_v2.csv",
+    "candidate_v2_run_dir": "results/candidate_gold_v2_qwen_20260519_131703",
+    "previous_final_eval_predictions": "results/final_eval_20260409_194025/predictions_main.csv",
+    "legacy_key_source_py": "src/llm_step2_fast_qc.py",
+    "output_root": "results"
+  },
+  "llm": {
+    "provider": "dashscope_qwen",
+    "api_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "api_key_env": "DASHSCOPE_API_KEY",
+    "debug_api_key": "",
+    "reuse_legacy_debug_key": true,
+    "model_candidates": ["qwen-max", "qwen-plus"],
+    "temperature": 0.0,
+    "timeout": 120,
+    "retries": 2,
+    "workers": 8,
+    "sleep_seconds": 0.02,
+    "max_chars_pre": 9000,
+    "max_tokens_vote": 1400,
+    "prompt_template_version": "precision_lift_85_self_consistency_v1",
+    "allow_rule_fallback": false
+  },
+  "eval": {
+    "seed": 2026,
+    "n_splits": 5,
+    "top_k": 5,
+    "clean_filter": {"needs_review": 0, "conflict_flag": 0}
+  },
+  "run": {
+    "run_name_prefix": "precision_lift_85"
+  }
+}

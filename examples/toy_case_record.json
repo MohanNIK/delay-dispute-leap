@@ -1,0 +1,7 @@
+{
+  "case_id": "toy-delay-001",
+  "pre_decision_text": "The owner issued a late design revision. The contractor requested an extension of time and submitted a notice record.",
+  "outcome_label": "partial_support",
+  "primary_responsible_party": "owner",
+  "notes": "Toy illustrative record for repository documentation only."
+}

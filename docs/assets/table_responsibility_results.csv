@@ -1,0 +1,3 @@
+﻿dataset_name,accuracy,macro_f1,uncertainty_rate,evidence_consistency_rate,violation_rate
+candidate_gold_strict_v1,0.2832618025751073,0.1795985060690943,0.048,0.992,0.0
+candidate_gold_extended_v1,0.3103448275862069,0.19640732871982722,0.068,0.992,0.0

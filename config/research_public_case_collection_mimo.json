@@ -1,0 +1,55 @@
+{
+  "source": {
+    "provider": "zh_wikisource_mediawiki",
+    "api_url": "https://zh.wikisource.org/w/api.php",
+    "user_agent": "DelayDisputeCopilotResearch/1.0 (academic public-document collection)",
+    "search_limit_per_call": 50,
+    "max_total_candidates": 30000,
+    "sleep_between_requests_sec": 0.2,
+    "queries": [
+      "建设工程施工合同纠纷 工期延误",
+      "建设工程施工合同纠纷 延误工期",
+      "建设工程合同纠纷 逾期竣工",
+      "建设工程施工合同纠纷 工期顺延",
+      "建设工程施工合同纠纷 停工 窝工",
+      "建设工程施工合同纠纷 逾期交工",
+      "工程延期 索赔 建设工程施工合同纠纷",
+      "工程逾期 违约金 建设工程施工合同纠纷",
+      "延期交付 工期 建设工程施工合同纠纷",
+      "关键线路 工期 建设工程施工合同纠纷",
+      "签证 工期延误 建设工程施工合同纠纷",
+      "施工进度计划 工期延误 建设工程",
+      "开工令 工期顺延 建设工程",
+      "竣工验收 逾期 工期 建设工程施工合同纠纷",
+      "建设工程分包合同纠纷 工期延误",
+      "承包人原因 工期延误 建设工程",
+      "发包人原因 工期延误 建设工程",
+      "工期延误 违约金 民事判决书 建设工程",
+      "停工损失 工期 建设工程 民事判决书",
+      "窝工损失 工期 建设工程 民事判决书"
+    ]
+  },
+  "quality": {
+    "min_text_chars": 2500,
+    "min_search_hit_size": 3000,
+    "require_judgment_title": true,
+    "drop_procedural_only": true,
+    "local_candidate_threshold": 0.55,
+    "mimo_accept_threshold": 0.72
+  },
+  "mimo": {
+    "base_url_env": "MIMO_OPENAI_BASE_URL",
+    "api_key_env": "MIMO_API_KEY",
+    "model_name": "mimo-v2.5-pro",
+    "temperature": 0.0,
+    "max_tokens": 2000,
+    "timeout_sec": 120,
+    "retries": 1,
+    "workers": 8,
+    "max_chars_for_screening": 4000,
+    "enabled": true
+  },
+  "paths": {
+    "output_root": "data/external_mimo_candidates"
+  }
+}

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: delay-dispute-leap
+message: "If you use this repository, please cite it as software."
+type: software
+authors:
+  - family-names: Tian
+    given-names: Yishuai
+repository-code: https://github.com/MohanNIK/delay-dispute-leap
+license: MIT
+abstract: >
+  Reproducible research toolkit for construction delay-dispute outcome prediction,
+  responsibility diagnosis, and audit-oriented evaluation.
+keywords:
+  - construction delay dispute
+  - LLM evaluation
+  - reproducible research
+  - decision support

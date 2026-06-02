@@ -1,0 +1,35 @@
+{
+  "input": {
+    "combined_usable_manifest": "data/1_raw_text/combined_delay_dispute_corpus_20260527/combined_usable_manifest.csv",
+    "existing_frozen_strong_labels": "data/lora_exports/lora_frozen_v1_2384/strong_label_master_v1_2384.csv",
+    "prefer_tiers": [
+      "Tier_A_mimo_strict_complete",
+      "Tier_B_plus_high_quality_local",
+      "Tier_B_local_delay_candidate"
+    ]
+  },
+  "labeling": {
+    "target_total_strong_labels": 20000,
+    "min_label_confidence": 0.8,
+    "min_pre_decision_sufficiency": 0.5,
+    "max_chars_for_labeling": 3200,
+    "save_every": 10,
+    "min_usable_label_confidence": 0.75
+  },
+  "mimo": {
+    "base_url_env": "MIMO_OPENAI_BASE_URL",
+    "api_key_env": "MIMO_API_KEY",
+    "model_name": "mimo-v2.5-pro",
+    "fallback_model_name": "",
+    "temperature": 0.0,
+    "max_tokens": 1000,
+    "timeout_sec": 120,
+    "retries": 1,
+    "workers": 8,
+    "enabled": true,
+    "disable_thinking": true
+  },
+  "output": {
+    "out_dir": "data/1_raw_text/combined_delay_dispute_corpus_20260527/mimo_fast_strong_labels"
+  }
+}

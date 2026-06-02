@@ -1,0 +1,37 @@
+{
+  "input": {
+    "combined_usable_manifest": "data/1_raw_text/combined_delay_dispute_corpus_20260527/mimo_batch_outcome_labels_v2/strict49k_label_queue.csv",
+    "exclude_fast_label_results": "data/1_raw_text/combined_delay_dispute_corpus_20260527/nonexistent_exclude.csv"
+  },
+  "labeling": {
+    "batch_size": 5,
+    "max_chars_per_case": 2200,
+    "relaxed_lora_mode": true,
+    "force_three_label_output": true,
+    "use_relaxed_as_lora_usable": true,
+    "ultra_relaxed_lora_usable": true,
+    "min_strong_confidence": 0.8,
+    "min_usable_confidence": 0.6,
+    "min_pre_decision_sufficiency": 0.4,
+    "min_usable_pre_decision_sufficiency": 0.25,
+    "min_relaxed_usable_confidence": 0.25,
+    "min_relaxed_usable_pre_decision_sufficiency": 0.0,
+    "min_relaxed_basis_span_chars": 0,
+    "allow_empty_basis_for_ultra_relaxed": true,
+    "allow_conflict_for_relaxed_lora": true,
+    "save_every_batches": 10
+  },
+  "mimo": {
+    "base_url_env": "MIMO_OPENAI_BASE_URL",
+    "api_key_env": "MIMO_API_KEY",
+    "model_name": "mimo-v2.5-pro",
+    "temperature": 0.0,
+    "max_tokens": 2600,
+    "timeout_sec": 180,
+    "retries": 6,
+    "workers": 8,
+    "enabled": true,
+    "disable_thinking": true,
+    "rate_limit_sleep_sec": 45
+  }
+}

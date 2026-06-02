@@ -1,0 +1,36 @@
+style:
+  font_family: "Times New Roman"
+  fallback_font_family: "DejaVu Serif"
+  font_size: 9.2
+  title_size: 10.2
+  axis_label_size: 9.0
+  tick_size: 8.1
+  legend_size: 8.0
+  line_width: 1.0
+  axis_width: 0.8
+  grid_alpha: 0.12
+  marker_size: 4.6
+  color_palette:
+    - "#1F1F1F"
+    - "#5A6F80"
+    - "#7E9D90"
+    - "#A65F5F"
+    - "#B5895A"
+    - "#8A8F99"
+    - "#C4C4C4"
+  grayscale_palette:
+    - "#202020"
+    - "#5E5E5E"
+    - "#919191"
+    - "#C8C8C8"
+  colorblind_safe: true
+  monochrome_fallback: true
+
+layout:
+  single_col_width_in: 3.5
+  double_col_width_in: 7.2
+  wide_col_width_in: 7.6
+  default_height_in: 3.0
+  tall_height_in: 4.6
+  panel_height_in: 5.8
+  tight_layout: true

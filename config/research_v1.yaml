@@ -1,0 +1,75 @@
+project:
+  name: delay_dispute_madra
+  root: .
+
+paths:
+  data_root: data
+  parsed_json_dir: data/2_parsed_json
+  structured_case_dir: data/3_structured_cases
+  meta_labels_csv: data/meta/labels_step2.csv
+  llm_labels_csv: results/labels_step2_delay_outcome_llm.csv
+  seed_reference_csv: data/gold/gold65_v1.csv
+  candidate_gold_strict_csv: data/gold/candidate_gold_strict_v1.csv
+  candidate_gold_extended_csv: data/gold/candidate_gold_extended_v1.csv
+  gold_guideline_md: data/gold/annotation_guideline_v1.md
+  gold_qc_txt: data/gold/qc_report_v1.txt
+  gold_sampling_manifest_csv: data/gold/sampling_manifest_v1.csv
+  gold_provenance_manifest_csv: data/gold/provenance_manifest_v1.csv
+  review_dir: data/review
+  final_eval_root: results
+  paper_assets_dir: paper_assets
+
+random:
+  seed: 2026
+
+candidate_gold:
+  strict_target_size: 250
+  extended_target_size: 500
+  strict_min_per_label: 45
+  extended_min_per_label: 80
+  conflict_weight: 0.35
+  uncertainty_weight: 0.20
+  evidence_weight: 0.20
+  procedure_weight: 0.15
+  seed_reference_weight: 0.10
+  review_subset_size: 52
+  version: candidate_gold_v1
+
+eval:
+  max_features: 60000
+  ngram_min: 1
+  ngram_max: 2
+  random_test_size: 0.25
+  time_split_holdout_ratio: 0.25
+  bootstrap_rounds: 300
+  retrieval_top_k: 5
+  baselines:
+    - majority_class
+    - rule_baseline
+    - tfidf_logreg
+    - tfidf_linearsvc
+    - tfidf_multinomialnb
+    - current_hybrid_baseline
+    - paesc_hybrid
+
+ablation:
+  settings:
+    - remove_pre_decision_constraint
+    - remove_structured_events
+    - remove_procedural_signals
+    - remove_evidence_chain
+    - remove_responsibility_head
+    - remove_retrieval
+    - remove_irac_verifier
+
+figures:
+  dpi: 600
+  formats:
+    - png
+    - pdf
+    - svg
+  out_dir_name: figures
+  figure_data_dir_name: figure_data
+  tables_dir_name: tables
+  captions_dir_name: captions
+  text_dir_name: text

@@ -1,0 +1,98 @@
+project:
+  name: delay_dispute_madra
+  root: .
+  branch: research_v2_55_mmec
+
+inherits: config/research_v1.yaml
+
+paths:
+  data_root: data
+  parsed_json_dir: data/2_parsed_json
+  structured_case_dir: data/3_structured_cases
+  meta_labels_csv: data/meta/labels_step2.csv
+  llm_labels_csv: results/labels_step2_delay_outcome_llm.csv
+  llm55_case_json_dir: results/llm55_case_json
+  llm55_labels_csv: results/labels_step2_delay_outcome_llm55.csv
+  llm55_evidence_chain_csv: results/llm55_evidence_chain.csv
+  llm55_managerial_mechanisms_csv: results/llm55_managerial_mechanisms.csv
+  seed_reference_csv: data/gold/gold65_v1.csv
+  candidate_gold_strict_csv: data/gold/candidate_gold_strict_v1.csv
+  candidate_gold_extended_csv: data/gold/candidate_gold_extended_v1.csv
+  review_dir: data/review
+  final_eval_root: results
+  paper_assets_dir: paper_assets
+
+random:
+  seed: 2026
+
+llm55:
+  model_name: gpt-5.5
+  api_base_url: https://api.openai.com/v1
+  api_key_env: OPENAI_API_KEY
+  debug_api_key: ""
+  prompt_template_version: llm55_delay_mechanism_v1
+  use_api_default: false
+  timeout: 90
+  max_tokens: 1200
+  max_chars: 5000
+  workers: 1
+  target_scope: audit_first_candidate_benchmarks
+  include_audit_subset: true
+  include_conflict_cases: true
+  fallback_mode: api_unavailable_rule_proxy
+
+mmec:
+  model_name: mmec_paesc_55
+  embedding_model: tfidf_signature_retrieval_v1
+  label_schema_version: outcome_v1__responsibility_v1__candidate_gold_v1__mmec_v1
+  weight_grid:
+    - 0.00
+    - 0.04
+    - 0.08
+    - 0.12
+    - 0.16
+    - 0.20
+  api_prior_weight_if_available: 0.12
+  api_prior_weight_if_unavailable: 0.00
+  mechanism_fields:
+    - documentation_gap_index
+    - procedural_compliance_risk
+    - causality_ambiguity
+    - concurrency_risk
+    - critical_path_support
+    - negotiation_readiness_score
+    - managerial_failure_type
+    - recommended_management_action
+
+eval:
+  max_features: 60000
+  ngram_min: 1
+  ngram_max: 2
+  random_test_size: 0.25
+  time_split_holdout_ratio: 0.25
+  bootstrap_rounds: 300
+  retrieval_top_k: 5
+  baselines:
+    - majority_class
+    - rule_baseline
+    - tfidf_logreg
+    - tfidf_linearsvc
+    - tfidf_multinomialnb
+    - current_hybrid_baseline
+    - paesc_hybrid
+    - gpt55_direct
+    - mmec_paesc_55_no_mechanism
+    - mmec_paesc_55_no_evidence_chain
+    - mmec_paesc_55
+
+figures:
+  dpi: 600
+  formats:
+    - png
+    - pdf
+    - svg
+  out_dir_name: figures
+  figure_data_dir_name: figure_data
+  tables_dir_name: tables
+  captions_dir_name: captions
+  text_dir_name: text

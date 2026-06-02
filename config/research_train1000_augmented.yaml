@@ -1,0 +1,42 @@
+{
+  "paths": {
+    "raw_docx_dir": "data/0_raw_docx",
+    "structured_case_dir": "data/3_structured_cases",
+    "structured_index": "data/meta/structured_case_index.csv",
+    "test_label_file": "data/gold/candidate_gold_extended_v2.csv",
+    "precision_lift_run_dir": "results/precision_lift_85_20260520_111650",
+    "legacy_key_source_py": "src/llm_step2_fast_qc.py",
+    "output_root": "results"
+  },
+  "sampling": {
+    "candidate_pool_size": 1400,
+    "target_train_size": 1000,
+    "target_class_balance": {"support": 330, "partial": 335, "not_support": 335},
+    "min_confidence": 0.7,
+    "support_aug_views_per_case": 2,
+    "min_pre_chars": 800
+  },
+  "llm": {
+    "provider": "dashscope_qwen",
+    "api_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "api_key_env": "DASHSCOPE_API_KEY",
+    "debug_api_key": "",
+    "reuse_legacy_debug_key": true,
+    "model_candidates": ["qwen-max", "qwen-plus"],
+    "temperature": 0.0,
+    "timeout": 120,
+    "retries": 2,
+    "workers": 8,
+    "max_chars_pre": 6500,
+    "max_chars_post": 6500,
+    "max_tokens_label": 1300,
+    "prompt_template_version": "train1000_qwen_augmented_label_v1"
+  },
+  "eval": {
+    "seed": 2026,
+    "top_k": 7
+  },
+  "run": {
+    "run_name_prefix": "train1000_augmented_precision"
+  }
+}

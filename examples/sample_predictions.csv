@@ -1,0 +1,4 @@
+case_id,y_true,y_pred,confidence,review_flag
+toy-delay-001,partial,partial,0.74,0
+toy-delay-002,support,support,0.81,0
+toy-delay-003,not_support,partial,0.58,1

@@ -1,0 +1,38 @@
+paths:
+  structured_index: data/meta/structured_case_index.csv
+  structured_case_dir: data/3_structured_cases
+  existing_train_label_records: results/train1000_augmented_precision_20260521_153425/train_label_records.csv
+  candidate_gold_strict_v1: data/gold/candidate_gold_strict_v1.csv
+  candidate_gold_extended_v1: data/gold/candidate_gold_extended_v1.csv
+  frozen_test500: data/gold/candidate_gold_extended_v2.csv
+  output_root: data/lora_exports
+
+quality:
+  min_confidence_existing: 0.85
+  min_confidence_new: 0.85
+  min_pre_chars: 600
+  min_post_chars: 120
+  min_delay_relevance: 0.80
+  strong_score_threshold: 0.78
+  weak_score_threshold: 0.50
+  train_ratio: 0.88
+  max_input_chars: 6500
+  seed: 2026
+
+qwen_flash:
+  enabled: false
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  api_key_env: DASHSCOPE_API_KEY
+  model_name: qwen-flash
+  temperature: 0.0
+  max_tokens_screen: 700
+  max_tokens_label: 900
+  timeout: 90
+  retries: 1
+  workers: 6
+  max_screen_cases: 300
+  max_label_cases: 200
+  max_chars_pre_screen: 3200
+  max_chars_post_screen: 2200
+  max_chars_pre_label: 4200
+  max_chars_post_label: 4200

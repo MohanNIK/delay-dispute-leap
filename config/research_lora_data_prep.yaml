@@ -1,0 +1,36 @@
+{
+  "paths": {
+    "structured_index": "data/meta/structured_case_index.csv",
+    "structured_case_dir": "data/3_structured_cases",
+    "raw_docx_dir": "data/0_raw_docx",
+    "test_label_file": "data/gold/candidate_gold_extended_v2.csv",
+    "existing_train_label_records": "results/train1000_augmented_precision_20260521_153425/train_label_records.csv",
+    "output_root": "data/lora_exports"
+  },
+  "quality": {
+    "min_confidence": 0.8,
+    "min_pre_chars": 600,
+    "require_needs_review_zero": true,
+    "require_api_available": true,
+    "exclude_potential_leakage": true,
+    "train_ratio": 0.9,
+    "max_input_chars": 6500,
+    "seed": 2026
+  },
+  "labeling": {
+    "provider": "openai",
+    "model_name": "gpt-5.5",
+    "openai_base_url": "https://api.openai.com/v1",
+    "openai_api_key_env": "OPENAI_API_KEY",
+    "dashscope_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "dashscope_api_key_env": "DASHSCOPE_API_KEY",
+    "dashscope_model_name": "qwen-max",
+    "temperature": 0.0,
+    "timeout": 120,
+    "retries": 1,
+    "workers": 4,
+    "max_label_cases": 0,
+    "max_chars_pre": 4500,
+    "max_chars_post": 5500
+  }
+}

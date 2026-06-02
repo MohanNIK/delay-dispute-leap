@@ -1,0 +1,22 @@
+{
+  "paths": {
+    "train_label_records": "results/train1000_augmented_precision_20260521_153425/train_label_records.csv",
+    "test_label_file": "data/gold/candidate_gold_extended_v2.csv",
+    "precision_lift_predictions": "results/precision_lift_85_20260520_111650/predictions_main.csv",
+    "raw_docx_dir": "data/0_raw_docx",
+    "structured_case_dir": "data/3_structured_cases",
+    "output_root": "results"
+  },
+  "sampling": {
+    "min_confidence": 0.7,
+    "max_per_class": 232,
+    "support_aug_views_per_case": 2
+  },
+  "model": {
+    "seed": 2026,
+    "top_k_per_label": 5
+  },
+  "run": {
+    "run_name_prefix": "balanced_ec_rag_paesc"
+  }
+}

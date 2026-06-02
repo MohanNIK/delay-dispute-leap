@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.DS_Store
+.venv/
+venv/
+env/
+results/
+outputs/
+logs/
+*.log
+*.tmp
+*.bak

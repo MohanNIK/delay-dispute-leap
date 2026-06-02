@@ -1,0 +1,34 @@
+{
+  "input": {
+    "combined_usable_manifest": "data/1_raw_text/combined_delay_dispute_corpus_20260527/mimo_batch_outcome_labels_v2/strict49k_label_queue.csv",
+    "exclude_fast_label_results": "data/1_raw_text/combined_delay_dispute_corpus_20260527/nonexistent_exclude.csv"
+  },
+  "labeling": {
+    "batch_size": 4,
+    "max_chars_per_case": 2300,
+    "relaxed_lora_mode": true,
+    "use_relaxed_as_lora_usable": true,
+    "min_strong_confidence": 0.8,
+    "min_usable_confidence": 0.62,
+    "min_pre_decision_sufficiency": 0.45,
+    "min_usable_pre_decision_sufficiency": 0.3,
+    "min_relaxed_usable_confidence": 0.45,
+    "min_relaxed_usable_pre_decision_sufficiency": 0.15,
+    "min_relaxed_basis_span_chars": 2,
+    "allow_conflict_for_relaxed_lora": false,
+    "save_every_batches": 10
+  },
+  "mimo": {
+    "base_url_env": "MIMO_OPENAI_BASE_URL",
+    "api_key_env": "MIMO_API_KEY",
+    "model_name": "mimo-v2.5-pro",
+    "temperature": 0.0,
+    "max_tokens": 2400,
+    "timeout_sec": 180,
+    "retries": 6,
+    "workers": 6,
+    "enabled": true,
+    "disable_thinking": true,
+    "rate_limit_sleep_sec": 45
+  }
+}

@@ -1,0 +1,51 @@
+project:
+  name: delay_dispute_madra
+  branch: true_llm_copilot_qwen
+
+paths:
+  structured_case_dir: data/3_structured_cases
+  candidate_gold_strict_csv: data/gold/candidate_gold_strict_v1.csv
+  candidate_gold_extended_csv: data/gold/candidate_gold_extended_v1.csv
+  legacy_key_source_py: src/llm_step2_fast_qc.py
+  final_eval_reference_run: results/final_eval_20260409_194025
+  output_root: results
+
+llm:
+  provider: dashscope_qwen
+  api_base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  api_key_env: DASHSCOPE_API_KEY
+  debug_api_key: ""
+  reuse_legacy_debug_key: true
+  model_name: qwen-plus
+  prompt_template_version: true_qwen_delay_copilot_v1
+  temperature: 0.0
+  max_tokens: 1800
+  timeout: 120
+  retries: 2
+  workers: 1
+  sleep_seconds: 0.25
+  max_chars: 6500
+  allow_rule_fallback: false
+  text_mode: pre_decision_only
+
+eval:
+  labels:
+    - support
+    - partial
+    - not_support
+  responsibility_labels:
+    - owner
+    - contractor
+    - subcontractor
+    - designer_supervisor
+    - both
+    - force_majeure_policy
+    - unknown
+  bootstrap_rounds: 300
+  seed: 2026
+  min_success_rate_for_claimable_metric: 0.95
+
+run:
+  preflight_cases: 5
+  candidate_scope: strict_plus_extended_deduplicated
+  run_name_prefix: true_llm_copilot
